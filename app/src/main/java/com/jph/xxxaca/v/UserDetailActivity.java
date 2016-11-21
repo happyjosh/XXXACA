@@ -38,7 +38,7 @@ public class UserDetailActivity extends AppCompatActivity implements IUserDetail
 
         DaggerUserComponent.builder()
                 .appComponent(((App) getApplication()).getAppComponent())
-                .userModule(new UserModule(this, 1)).build().inject(this);
+                .userModule(new UserModule(this, "0000002")).build().inject(this);
     }
 
     @OnClick(R.id.user_detail_btn_load)

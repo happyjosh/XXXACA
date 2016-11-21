@@ -12,11 +12,11 @@ import rx.Observable;
 
 public class UserUseCase extends UseCase {
 
-    private int mUserId;
+    private String mUserId;
     private IUserData mIUserData;
 
     @Inject
-    public UserUseCase(int userId, IUserData IUserData) {
+    public UserUseCase(String userId, IUserData IUserData) {
         mUserId = userId;
         mIUserData = IUserData;
     }

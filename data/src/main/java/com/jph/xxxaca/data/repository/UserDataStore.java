@@ -19,7 +19,7 @@ public class UserDataStore implements IUserData {
     }
 
     @Override
-    public Observable<UserDetail> getUserDetail(int userId) {
+    public Observable<UserDetail> getUserDetail(String userId) {
         return mUserDataStoreFactory.create().getUserDetail(userId);
     }
 }

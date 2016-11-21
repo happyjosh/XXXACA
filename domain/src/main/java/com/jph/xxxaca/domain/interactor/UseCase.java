@@ -4,6 +4,8 @@ package com.jph.xxxaca.domain.interactor;
 import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * 所有UseCase父类
@@ -16,8 +18,8 @@ public abstract class UseCase {
 
     public void execute(Subscriber subscriber) {
         mSubscription = buildUseCaseObservable()
-//                .subscribeOn()
-//                .observeOn()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }
 

@@ -10,5 +10,5 @@ import rx.Observable;
 
 public interface IUserData {
 
-    Observable<UserDetail> getUserDetail(int userId);
+    Observable<UserDetail> getUserDetail(String userId);
 }

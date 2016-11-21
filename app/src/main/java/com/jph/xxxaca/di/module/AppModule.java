@@ -2,6 +2,8 @@ package com.jph.xxxaca.di.module;
 
 import android.content.Context;
 
+import com.jph.xxxaca.data.net.APIManager;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -22,5 +24,11 @@ public class AppModule {
     @Provides
     public Context provideContext() {
         return mContext;
+    }
+
+    @Singleton
+    @Provides
+    public APIManager provideAPIManager() {
+        return new APIManager();
     }
 }

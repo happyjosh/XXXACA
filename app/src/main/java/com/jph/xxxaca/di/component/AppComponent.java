@@ -2,6 +2,7 @@ package com.jph.xxxaca.di.component;
 
 import android.content.Context;
 
+import com.jph.xxxaca.data.net.APIManager;
 import com.jph.xxxaca.di.module.AppModule;
 
 import javax.inject.Singleton;
@@ -16,4 +17,6 @@ import dagger.Component;
 public interface AppComponent {
 
     Context getContext();
+
+    APIManager getAPIManager();
 }

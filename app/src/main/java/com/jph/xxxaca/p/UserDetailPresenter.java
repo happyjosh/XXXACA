@@ -1,6 +1,10 @@
 package com.jph.xxxaca.p;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.jph.xxxaca.data.entity.UserDetail;
+import com.jph.xxxaca.data.net.APIException;
 import com.jph.xxxaca.domain.interactor.UseCase;
 import com.jph.xxxaca.v.IUserDetailView;
 
@@ -19,6 +23,9 @@ public class UserDetailPresenter {
     IUserDetailView mUserDetailView;
 
     @Inject
+    Context mContext;
+
+    @Inject
     public UserDetailPresenter(@Named(value = "UserDetail") UseCase userUseCase, IUserDetailView userDetailView) {
         mUserUseCase = userUseCase;
         mUserDetailView = userDetailView;
@@ -33,7 +40,12 @@ public class UserDetailPresenter {
 
             @Override
             public void onError(Throwable e) {
-
+                e.printStackTrace();
+                if (e instanceof APIException) {
+                    APIException apiException = (APIException) e;
+                    Toast.makeText(mContext, apiException.getCode() + " | " + apiException.getMessage(),
+                            Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
